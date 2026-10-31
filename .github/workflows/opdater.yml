@@ -1,0 +1,62 @@
+name: Opdater Billig Protein
+
+on:
+  schedule:
+    - cron: "15 4 * * *"   # hver morgen kl. 05:15 (vinter) / 06:15 (sommer) dansk tid
+  workflow_dispatch:        # kan startes manuelt fra fanen "Actions"
+  push:
+    branches: [main]
+    paths-ignore: ["docs/**", "README.md"]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: opdater
+  cancel-in-progress: false
+
+jobs:
+  opdater:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - run: pip install -r requirements.txt
+
+      - name: Hent sidste gode data (bruges hvis en kilde fejler)
+        uses: actions/cache/restore@v4
+        with:
+          path: data/cache
+          key: kilder-${{ github.run_id }}
+          restore-keys: kilder-
+
+      - name: Hent priser og byg siden
+        env:
+          REMA_ALGOLIA_KEY: ${{ secrets.REMA_ALGOLIA_KEY }}
+          TZ: Europe/Copenhagen
+        run: python opdater.py --out docs
+
+      - name: Gem data til næste kørsel
+        if: success()
+        uses: actions/cache/save@v4
+        with:
+          path: data/cache
+          key: kilder-${{ github.run_id }}
+
+      - name: Udgiv den nye side
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs
+          if git diff --staged --quiet; then
+            echo "Ingen ændringer"
+          else
+            git commit -m "Opdater priser $(TZ=Europe/Copenhagen date +%F)"
+            git push
+          fi
