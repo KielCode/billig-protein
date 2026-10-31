@@ -1,0 +1,657 @@
+<!doctype html>
+<html lang="da">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Billig Protein — hvor får du mest protein for pengene?</title>
+<meta name="description" content="Dagligt opdateret sammenligning af protein i Rema 1000, Netto, Lidl, føtex, Bilka og flere. Se hvad 100 g protein koster — justeret for proteinkvalitet.">
+<meta property="og:title" content="Billig Protein">
+<meta property="og:description" content="Hvor får du mest protein for pengene i danske supermarkeder? Opdateres hver morgen.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#d62828">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23d62828'/%3E%3Cpath d='M10 22 L21 31 L10 40 M21 31 L32 22 L43 31 L54 22' stroke='white' stroke-width='5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M43 31 V46' stroke='%23b7f0cf' stroke-width='5' stroke-linecap='round'/%3E%3C/svg%3E">
+<style>
+:root{
+  --bg:#f5f6f8; --card:#fff; --ink:#151821; --ink2:#3a404d; --muted:#6b7280; --line:#e5e7eb; --line2:#eef0f3;
+  --brand:#d62828; --brand-d:#a91e1e; --brand-bg:#fdecec;
+  --good:#137a3d; --good-bg:#e8f7ee; --mid:#b45309; --mid-bg:#fef5e7; --low:#b42318; --low-bg:#fdeceb;
+  --info:#1d4ed8; --info-bg:#eef4ff; --bone:#166534; --bone-bg:#effaf3;
+  --r:14px; --shadow:0 1px 2px rgba(16,24,40,.05),0 1px 3px rgba(16,24,40,.06);
+  --font:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 var(--font);-webkit-font-smoothing:antialiased}
+button{font:inherit;color:inherit;cursor:pointer}
+a{color:var(--info)}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+
+/* Header */
+.top{background:var(--card);border-bottom:1px solid var(--line)}
+.top-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;height:60px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);font-weight:800;font-size:19px;letter-spacing:-.3px}
+.brand svg{width:34px;height:24px;color:var(--brand)}
+.brand b{color:var(--brand)}
+.fresh{font-size:13px;color:var(--muted);display:flex;align-items:center;gap:7px;text-align:right}
+.fresh .dot{width:8px;height:8px;border-radius:50%;background:#22c55e;box-shadow:0 0 0 3px #dcfce7;flex:none}
+.fresh.stale .dot{background:#f59e0b;box-shadow:0 0 0 3px #fef3c7}
+
+/* Hero */
+.hero{padding:28px 0 18px}
+.hero h1{font-size:clamp(24px,4vw,34px);line-height:1.15;margin:0 0 10px;letter-spacing:-.6px}
+.hero p{margin:0;color:var(--ink2);max-width:720px;font-size:16px}
+.link{background:none;border:0;padding:0;color:var(--info);text-decoration:underline;text-underline-offset:2px}
+
+/* Kategorier */
+.cats{display:grid;grid-template-columns:repeat(auto-fill,minmax(176px,1fr));gap:8px;margin:8px 0 16px}
+.cat{display:grid;grid-template-columns:30px 1fr;grid-template-rows:auto auto;column-gap:8px;align-items:center;text-align:left;background:var(--card);border:1.5px solid var(--line);border-radius:12px;padding:9px 12px;box-shadow:var(--shadow);transition:border-color .15s,transform .15s}
+.cat .ik{grid-row:span 2}
+.cat .sm{font-size:12.5px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cat .sm b{color:var(--good);font-weight:650}
+.cat:hover{border-color:#cbd0d8;transform:translateY(-1px)}
+.cat[aria-pressed="true"]{border-color:var(--brand);background:var(--brand-bg)}
+.cat .ik{font-size:22px;line-height:1;text-align:center}
+.cat .nv{font-weight:700;font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cat[disabled]{opacity:.45;cursor:default;transform:none}
+
+/* Værktøjslinje */
+.toolbar{position:sticky;top:0;z-index:20;background:var(--bg);padding:10px 0;display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.search{flex:1 1 280px;position:relative}
+.search svg{position:absolute;left:13px;top:50%;transform:translateY(-50%);width:18px;height:18px;color:var(--muted)}
+.search input{width:100%;height:44px;border:1.5px solid var(--line);border-radius:12px;background:var(--card);padding:0 14px 0 40px;font:inherit;font-size:16px;color:var(--ink)}
+.search input:focus{outline:none;border-color:var(--ink2)}
+.tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.chip{height:40px;border:1.5px solid var(--line);background:var(--card);border-radius:999px;padding:0 14px;font-size:14px;font-weight:600;white-space:nowrap;display:inline-flex;align-items:center;gap:6px}
+.chip:hover{border-color:#cbd0d8}
+.chip[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
+.chip .cnt{background:var(--brand);color:#fff;border-radius:999px;font-size:11px;padding:1px 7px}
+.sort{display:inline-flex;align-items:center;gap:6px;font-size:14px;color:var(--muted)}
+.sort select{height:40px;border:1.5px solid var(--line);border-radius:999px;background:var(--card);padding:0 12px;font:inherit;font-size:14px;font-weight:600;color:var(--ink)}
+.dd{position:relative}
+.dd-panel{position:absolute;top:46px;left:0;z-index:30;background:var(--card);border:1px solid var(--line);border-radius:12px;box-shadow:0 12px 32px rgba(16,24,40,.14);padding:8px;min-width:230px;max-height:360px;overflow:auto;display:none}
+.dd.open .dd-panel{display:block}
+.dd-panel label{display:flex;align-items:center;gap:9px;padding:7px 8px;border-radius:8px;font-size:14px;cursor:pointer}
+.dd-panel label:hover{background:var(--bg)}
+.dd-panel input{width:16px;height:16px;accent-color:var(--brand)}
+.dd-panel .n{margin-left:auto;color:var(--muted);font-size:12px}
+.dd-actions{display:flex;justify-content:space-between;border-top:1px solid var(--line2);margin-top:6px;padding:8px 6px 2px}
+
+.info{display:flex;justify-content:space-between;align-items:center;gap:10px;font-size:13px;color:var(--muted);margin:4px 2px 8px;min-height:20px}
+
+/* Liste */
+.liste{background:var(--card);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);overflow:hidden}
+.row,.head{display:grid;grid-template-columns:34px 52px minmax(0,1fr) 84px 100px 70px 132px;align-items:center;gap:12px;padding:12px 16px}
+.head{background:#fafbfc;border-bottom:1px solid var(--line);font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.4px;padding-top:10px;padding-bottom:10px}
+.head .r{text-align:right}
+.row{border-bottom:1px solid var(--line2);cursor:pointer;transition:background .12s}
+.row:last-child{border-bottom:0}
+.row:hover{background:#fafbfc}
+.row:focus-visible{outline:2px solid var(--info);outline-offset:-2px}
+.rank{font-weight:700;color:var(--muted);font-size:14px;text-align:center}
+.thumb{width:52px;height:52px;border-radius:10px;background:var(--bg);display:flex;align-items:center;justify-content:center;overflow:hidden;font-size:24px}
+.thumb img{width:100%;height:100%;object-fit:cover}
+.thumb.noimg::after{content:attr(data-emo)}
+.navn{font-weight:650;font-size:15px;line-height:1.3;overflow-wrap:anywhere}
+.meta{display:flex;flex-wrap:wrap;align-items:center;gap:4px 8px;margin-top:4px;font-size:13px;color:var(--muted)}
+.butik{display:inline-flex;align-items:center;gap:5px;font-weight:600;color:var(--ink2)}
+.butik i{width:9px;height:9px;border-radius:50%;background:var(--c,#6b7280);display:inline-block}
+.tag{display:inline-flex;align-items:center;border-radius:6px;padding:1px 7px;font-size:12px;font-weight:600;line-height:1.5}
+.tag.tilbud{background:var(--brand-bg);color:var(--brand-d)}
+.tag.kommende{background:var(--info-bg);color:var(--info)}
+.tag.est{background:var(--bg);color:var(--muted)}
+.tag.best{background:var(--good);color:#fff}
+.cell{text-align:right;font-size:14px;font-variant-numeric:tabular-nums}
+.cell small{color:var(--muted);font-size:12px}
+.vaerdi{text-align:right}
+.vaerdi strong{display:block;font-size:18px;font-variant-numeric:tabular-nums;letter-spacing:-.2px}
+.vaerdi small{color:var(--muted);font-size:12px}
+.head + .row .vaerdi strong{color:var(--good)}
+.dots{display:inline-flex;gap:3px;vertical-align:middle}
+.dots b{width:8px;height:8px;border-radius:50%;background:var(--line)}
+.q3 b{background:var(--good)} .q2 b:nth-child(-n+2){background:#e09b2d} .q1 b:first-child{background:var(--low)}
+.sub{display:none}
+.mere{display:flex;justify-content:center;padding:16px 0 4px}
+.btn{height:44px;border-radius:12px;border:1.5px solid var(--line);background:var(--card);padding:0 20px;font-weight:700}
+.btn:hover{border-color:#cbd0d8}
+.btn.primary{background:var(--ink);border-color:var(--ink);color:#fff}
+.lavere{margin:14px 0 0;text-align:center;font-size:14px;color:var(--muted)}
+.tom{padding:40px 20px;text-align:center;color:var(--muted)}
+
+/* Footer */
+footer{margin-top:44px;border-top:1px solid var(--line);background:var(--card);padding:26px 0 40px;font-size:13px;color:var(--muted)}
+footer p{margin:0 0 8px;max-width:820px}
+footer .links{display:flex;flex-wrap:wrap;gap:16px;margin-top:12px}
+
+/* Detaljepanel */
+.sheet-bg,.modal-bg{position:fixed;inset:0;background:rgba(15,18,25,.45);z-index:50;opacity:0;pointer-events:none;transition:opacity .2s}
+.sheet-bg.open,.modal-bg.open{opacity:1;pointer-events:auto}
+.sheet{position:fixed;z-index:60;top:0;right:0;bottom:0;width:min(460px,100%);background:var(--card);box-shadow:-12px 0 40px rgba(16,24,40,.18);transform:translateX(100%);transition:transform .25s ease;overflow-y:auto;overscroll-behavior:contain}
+.sheet.open{transform:none}
+.x-bar{position:sticky;top:0;height:0;z-index:3}
+.x{position:absolute;top:10px;right:10px;width:38px;height:38px;border-radius:50%;border:0;background:rgba(255,255,255,.94);box-shadow:0 1px 4px rgba(16,24,40,.18);font-size:22px;line-height:1}
+.s-img{height:200px;background:var(--bg);display:flex;align-items:center;justify-content:center;font-size:64px;overflow:hidden}
+.s-img img{max-width:100%;max-height:100%;object-fit:contain}
+.s-body{padding:18px 22px 30px}
+.s-body h2{font-size:21px;line-height:1.25;margin:8px 0 4px;letter-spacing:-.3px}
+.s-pris{display:flex;align-items:baseline;gap:10px;margin:14px 0 4px;flex-wrap:wrap}
+.s-pris strong{font-size:30px;letter-spacing:-.6px}
+.s-pris span{color:var(--muted)}
+.result{background:var(--good-bg);border-radius:12px;padding:14px 16px;margin:16px 0}
+.result .big{font-size:26px;font-weight:800;color:var(--good);letter-spacing:-.4px}
+.result .big small{font-size:14px;font-weight:600}
+.steps{list-style:none;margin:10px 0 0;padding:0;font-size:13.5px;color:var(--ink2)}
+.steps li{display:flex;justify-content:space-between;gap:12px;padding:5px 0;border-top:1px dashed #c9e9d4}
+.steps li span:last-child{font-weight:650;white-space:nowrap;font-variant-numeric:tabular-nums}
+.note{border-radius:10px;padding:10px 12px;font-size:13px;margin:10px 0;line-height:1.45}
+.note.ben{background:var(--bone-bg);color:var(--bone);border:1px solid #bbf0cd}
+.note.var{background:var(--info-bg);color:#1e3a8a;border:1px solid #c7d7fe}
+.note.forarb{background:var(--mid-bg);color:#7a3e05;border:1px solid #f8d9a8}
+.note.est{background:var(--bg);color:var(--ink2);border:1px solid var(--line)}
+.s-sec{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);margin:20px 0 8px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.grid>div{background:var(--bg);border-radius:10px;padding:9px 12px}
+.grid .l{font-size:12px;color:var(--muted)}
+.grid .v{font-weight:700;font-variant-numeric:tabular-nums}
+.grid .wide{grid-column:span 2}
+.eu{display:inline-block;margin-left:6px;background:var(--good);color:#fff;border-radius:6px;padding:0 6px;font-size:11px;font-weight:700;vertical-align:1px}
+.actions{display:flex;flex-direction:column;gap:8px;margin-top:20px}
+.actions a{display:flex;align-items:center;justify-content:center;height:46px;border-radius:12px;font-weight:700;text-decoration:none;border:1.5px solid var(--line);color:var(--ink)}
+.actions a.primary{background:var(--ink);border-color:var(--ink);color:#fff}
+
+/* Modal */
+.modal{position:fixed;z-index:70;left:50%;top:50%;transform:translate(-50%,-48%);width:min(680px,calc(100% - 24px));max-height:min(86vh,900px);overflow:auto;background:var(--card);border-radius:18px;box-shadow:0 24px 64px rgba(16,24,40,.25);padding:26px 26px 22px;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s}
+.modal.open{opacity:1;pointer-events:auto;transform:translate(-50%,-50%)}
+.modal h2{margin:0 0 12px;font-size:22px;letter-spacing:-.4px}
+.modal h3{margin:20px 0 6px;font-size:13px;text-transform:uppercase;letter-spacing:.5px;color:var(--muted)}
+.modal p,.modal li{font-size:14.5px;color:var(--ink2);line-height:1.6}
+.modal p{margin:0 0 8px}
+.modal ol,.modal ul{margin:0 0 8px;padding-left:20px}
+.modal .x{top:12px;right:12px}
+.ref{width:100%;border-collapse:collapse;font-size:13.5px;margin-top:6px}
+.ref th{text-align:left;font-size:11.5px;text-transform:uppercase;letter-spacing:.4px;color:var(--muted);padding:6px 8px;border-bottom:2px solid var(--line)}
+.ref td{padding:7px 8px;border-bottom:1px solid var(--line2);font-variant-numeric:tabular-nums}
+.ref td:not(:first-child),.ref th:not(:first-child){text-align:right}
+.ref .grp td{font-weight:700;padding-top:16px;color:var(--ink);border-bottom:0}
+.levels{display:grid;gap:6px;margin:6px 0 8px}
+.levels div{display:flex;gap:10px;align-items:center;font-size:14px;color:var(--ink2)}
+
+/* Mobil */
+@media (max-width:760px){
+  .wrap{padding:0 14px}
+  .top-inner{height:54px}
+  .fresh .txt-lang{display:none}
+  .hero{padding:20px 0 12px}
+  .hero p{font-size:15px}
+  .cats{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;margin:4px -14px 12px;padding:2px 14px 6px;scrollbar-width:none}
+  .cats::-webkit-scrollbar{display:none}
+  .cat{flex:0 0 auto;min-width:150px;scroll-snap-align:start;padding:8px 12px}
+  .toolbar{padding:8px 0}
+  .tools{width:100%;overflow-x:auto;flex-wrap:nowrap;scrollbar-width:none;padding-bottom:2px}
+  .tools::-webkit-scrollbar{display:none}
+  .sort span{display:none}
+  .dd-panel{position:fixed;top:auto;left:12px;right:12px;bottom:12px;max-height:60vh}
+  .head{display:none}
+  .row{grid-template-columns:44px minmax(0,1fr) auto;gap:10px;padding:12px}
+  .rank{display:none}
+  .thumb{width:44px;height:44px;font-size:20px}
+  .cell{display:none}
+  .sub{display:flex;flex-wrap:wrap;gap:4px 10px;margin-top:4px;font-size:12.5px;color:var(--ink2)}
+  .vaerdi strong{font-size:16px}
+  .vaerdi small{display:block;max-width:74px;margin-left:auto;line-height:1.25}
+  .sheet{top:auto;width:100%;max-height:92vh;border-radius:18px 18px 0 0;transform:translateY(100%)}
+  .s-img{height:170px}
+  .modal{padding:22px 18px 18px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap top-inner">
+    <a class="brand" href="./" aria-label="Billig Protein — forside">
+      <svg viewBox="0 0 40 28" aria-hidden="true"><path d="M3 7 L11 14 L3 21 M11 14 L19 7 L27 14 L36 7" stroke="currentColor" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M27 14 V25" stroke="#2d8a57" stroke-width="3.2" stroke-linecap="round"/></svg>
+      <span>Billig<b>Protein</b></span>
+    </a>
+    <div class="fresh" id="fresh"><span class="dot"></span><span id="fresh-txt"></span></div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <h1>Hvor får du mest protein for pengene?</h1>
+    <p>Vi sammenligner <strong id="h-antal">–</strong> proteinrige varer fra <strong id="h-butikker">–</strong> butikker og regner ud, hvad 100 g protein koster — justeret for hvor godt kroppen kan udnytte det. <button class="link" data-modal="metode">Sådan regner vi</button></p>
+  </section>
+
+  <nav class="cats" id="cats" aria-label="Kategorier"></nav>
+
+  <section class="toolbar" aria-label="Søg og filtrér">
+    <label class="search">
+      <span class="sr">Søg efter vare</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5" stroke-linecap="round"/></svg>
+      <input id="sog" type="search" placeholder="Søg fx skyr, kyllingebryst, tun …" autocomplete="off">
+    </label>
+    <div class="tools">
+      <div class="dd" id="butik-dd">
+        <button class="chip" id="butik-btn" aria-haspopup="true" aria-expanded="false">Alle butikker ▾</button>
+        <div class="dd-panel" id="butik-panel" role="menu"></div>
+      </div>
+      <button class="chip" data-filter="tilbud" aria-pressed="false">🏷️ Kun tilbud</button>
+      <button class="chip" data-filter="forarb" aria-pressed="false">Skjul forarbejdet</button>
+      <label class="sort"><span>Sortér</span>
+        <select id="sort" aria-label="Sortering">
+          <option value="eff">Billigst pr. 100 g protein</option>
+          <option value="raa">Billigst (uden kvalitetsjustering)</option>
+          <option value="prot">Mest protein pr. 100 g</option>
+          <option value="andel">Mest protein pr. kalorie</option>
+          <option value="pris">Laveste pris</option>
+        </select>
+      </label>
+    </div>
+  </section>
+
+  <div class="info" id="info" aria-live="polite"></div>
+  <section class="liste" id="liste" aria-label="Resultater"></section>
+  <div class="mere"><button class="btn" id="vis-flere" hidden>Vis flere</button></div>
+  <p class="lavere" id="lavere"></p>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><strong>Billig Protein</strong> opdateres automatisk hver morgen med priser fra Rema 1000 og tilbudsaviser fra eTilbudsavis.</p>
+    <p>Rangeringen er udelukkende beregnet (pris ÷ protein ÷ proteinkvalitet) — ingen butikker betaler for placering. Priser og næringsindhold er vejledende, og siden udgør ikke ernæringsrådgivning.</p>
+    <div class="links">
+      <button class="link" data-modal="metode">Sådan regner vi</button>
+      <button class="link" data-modal="reference">Næringsreference</button>
+      <button class="link" data-modal="juridisk">Juridisk meddelelse</button>
+      <a id="repo-link" href="#" hidden>Kildekode</a>
+    </div>
+  </div>
+</footer>
+
+<div class="sheet-bg" id="sheet-bg"></div>
+<aside class="sheet" id="sheet" role="dialog" aria-modal="true" aria-label="Varedetaljer">
+  <div class="x-bar"><button class="x" data-luk aria-label="Luk">×</button></div>
+  <div id="sheet-body"></div>
+</aside>
+
+<div class="modal-bg" id="modal-bg"></div>
+<div class="modal" id="modal" role="dialog" aria-modal="true">
+  <button class="x" data-luk aria-label="Luk">×</button>
+  <div id="modal-body"></div>
+</div>
+
+<template id="tpl-metode">
+  <h2>Sådan regner vi</h2>
+  <p>Tallet i højre side er <strong>prisen for 100 g protein, som kroppen kan udnytte</strong>. Jo lavere, jo mere protein får du for pengene.</p>
+  <h3>Regnestykket</h3>
+  <ol>
+    <li><strong>Protein i pakken</strong> = vægt × protein pr. 100 g. For varer med knogler (hel kylling, lår, vinger, spareribs) trækker vi knoglerne fra — typisk 25–40 % af vægten.</li>
+    <li><strong>Proteinkvalitet (PDCAAS)</strong> — en score fra 0 til 1, der angiver hvor godt kroppen kan udnytte proteinet. Æg, mælk og skyr har 1,00, kød ca. 0,9, bælgfrugter 0,5–0,7. Forarbejdede varer (nuggets, frikadeller, panerede varer) nedjusteres, fordi en del af indholdet er fyld.</li>
+    <li><strong>Pris ÷ udnytteligt protein × 100</strong> = kr pr. 100 g protein.</li>
+  </ol>
+  <div class="levels">
+    <div><span class="dots q3"><b></b><b></b><b></b></span> Høj kvalitet (PDCAAS 0,85–1,00) — kød, fisk, æg, mejeri, soja</div>
+    <div><span class="dots q2"><b></b><b></b><b></b></span> God kvalitet (0,65–0,84) — fx kikærter, bønner, forarbejdet kød</div>
+    <div><span class="dots q1"><b></b><b></b><b></b></span> Lav kvalitet (under 0,65) — fx linser og korn; kombinér gerne med andre kilder</div>
+  </div>
+  <h3>Hvilke varer er med?</h3>
+  <p>Kun varer med <strong>højt proteinindhold</strong> efter EU's definition: mindst 20 % af energien skal komme fra protein (forordning 1924/2006). Derfor er fx havregryn, pasta og brød ikke med som standard — de kan vises med knappen under listen.</p>
+  <h3>Hvor kommer data fra?</h3>
+  <p><strong>Rema 1000:</strong> priser og næringsindhold fra varedeklarationen i Remas webshop.<br>
+  <strong>Øvrige butikker:</strong> ugens tilbud fra eTilbudsavis. Tilbudsaviser oplyser ikke næringsindhold, så det er estimeret ud fra varetypen (markeret med ~). Tjek altid emballagen.</p>
+  <p>Siden opdateres automatisk hver morgen. Udløbne tilbud fjernes.</p>
+  <h3>Uafhængighed</h3>
+  <p>Ingen butikker betaler for at blive vist eller rangeret højere. Rækkefølgen er udelukkende beregnet.</p>
+</template>
+
+<template id="tpl-juridisk">
+  <h2>Juridisk meddelelse</h2>
+  <h3>Priser og tilgængelighed</h3>
+  <p>Priser hentes automatisk fra butikkernes webshops og tilbudsaviser og kan afvige fra prisen i din lokale butik. Varer kan være udsolgt. Billig Protein påtager sig intet ansvar for prisforskelle, fejl i tilbud eller manglende tilgængelighed.</p>
+  <h3>Næringsindhold</h3>
+  <p>Næringsværdier er vejledende. Estimerede værdier (markeret med ~) er beregnet ud fra varetypen og kan afvige fra det faktiske indhold. Se altid varens emballage. PDCAAS-scorer er omtrentlige værdier baseret på FAO/WHO og videnskabelig litteratur.</p>
+  <h3>Ikke ernæringsrådgivning</h3>
+  <p>Billig Protein er et prissammenligningsværktøj og udgør ikke ernærings- eller sundhedsrådgivning. En varieret kost anbefales. Kontakt en læge eller klinisk diætist ved særlige behov.</p>
+  <h3>Datakilder og tilknytning</h3>
+  <p>Data stammer fra offentligt tilgængelige kilder. Billig Protein er ikke tilknyttet, godkendt af eller forbundet med Rema 1000, eTilbudsavis eller de øvrige nævnte butikker. Varemærker tilhører deres respektive ejere.</p>
+</template>
+
+<script id="data" type="application/json">__DATA__</script>
+<script>
+(function () {
+  "use strict";
+  var DATA = JSON.parse(document.getElementById("data").textContent || "{}");
+  var ALLE = DATA.produkter || [];
+  var KATS = DATA.kategorier || [];
+  var KAT = {};
+  KATS.forEach(function (k) { KAT[k.key] = k; });
+
+  var BUTIK_FARVE = {
+    "Rema 1000": "#cc0000", "Netto": "#f2b705", "Lidl": "#0050aa", "føtex": "#00745a", "Bilka": "#00539f",
+    "MENY": "#00703c", "SPAR": "#e30613", "Kvickly": "#c0003c", "Coop 365": "#e07000", "SuperBrugsen": "#00853f",
+    "Brugsen": "#00853f", "Dagli'Brugsen": "#00853f", "Lokal Brugsen": "#00853f", "LET-KØB": "#3a7d44",
+    "Min Købmand": "#3a7d44", "Løvbjerg": "#e4001b", "ABC Lavpris": "#005a9e", "Irma": "#1f3c88", "fakta": "#e2001a"
+  };
+
+  function z(n) { return String(n).padStart(2, "0"); }
+  function lokalDato(d) { return d.getFullYear() + "-" + z(d.getMonth() + 1) + "-" + z(d.getDate()); }
+  var DAG = lokalDato(new Date());
+
+  function esc(s) {
+    return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
+    });
+  }
+  function tal(v, dec) { return v.toLocaleString("da-DK", { minimumFractionDigits: dec, maximumFractionDigits: dec }); }
+  function kr(v) { return tal(v, v >= 100 ? 0 : 2) + " kr"; }
+  function krFast(v) { return tal(v, 2) + " kr"; }
+  function gTxt(g) { return g >= 1000 ? (g / 1000).toLocaleString("da-DK", { maximumFractionDigits: 2 }) + " kg" : Math.round(g) + " g"; }
+  function vaegtTxt(p) {
+    if (p.kat === "aeg") return Math.max(1, Math.round(p.vaegt / 60)) + " stk.";
+    if (p.vaegt_max) return gTxt(p.vaegt) + "–" + gTxt(p.vaegt_max);
+    return gTxt(p.vaegt);
+  }
+  function enhedTxt(p) {
+    if (p.kat === "aeg") return krFast(p.pris / Math.max(1, Math.round(p.vaegt / 60))) + "/stk.";
+    return krFast(p.pris / p.vaegt * 1000) + "/kg";
+  }
+  function dato(d) { var a = d.split("-"); return (+a[2]) + "/" + (+a[1]); }
+  function kval(q) {
+    if (q >= 0.85) return { c: "q3", t: "Høj" };
+    if (q >= 0.65) return { c: "q2", t: "God" };
+    return { c: "q1", t: "Lav" };
+  }
+  function dots(q) { var k = kval(q); return '<span class="dots ' + k.c + '" title="Proteinkvalitet: ' + k.t + ' (PDCAAS ' + tal(q, 2) + ')"><b></b><b></b><b></b></span>'; }
+  function aktiv(p) { return !p.slut || p.slut >= DAG; }
+  function tilbudTag(p) {
+    if (!p.slut) return "";
+    if (p.start && p.start > DAG) return '<span class="tag kommende">Tilbud fra ' + dato(p.start) + "</span>";
+    return '<span class="tag tilbud">Tilbud til ' + dato(p.slut) + "</span>";
+  }
+  function butikTag(navn) { return '<span class="butik" style="--c:' + (BUTIK_FARVE[navn] || "#6b7280") + '"><i></i>' + esc(navn) + "</span>"; }
+  function ikon(p) { return (KAT[p.kat] || {}).ikon || "🛒"; }
+  function norm(s) { return String(s || "").toLowerCase().trim(); }
+
+  ALLE.forEach(function (p) { p._s = norm(p.navn + " " + p.butik + " " + ((KAT[p.kat] || {}).navn || "")); });
+
+  // ── Tilstand ──────────────────────────────────────────────────────────────────
+  var state = { kat: "alle", q: "", butikker: [], tilbud: false, forarb: false, lavere: false, sort: "eff", vis: 50 };
+
+  function laesHash() {
+    var h = new URLSearchParams(location.hash.slice(1));
+    if (h.get("k") && (KAT[h.get("k")] || h.get("k") === "alle")) state.kat = h.get("k");
+    if (h.get("q")) state.q = h.get("q");
+    if (h.get("b")) state.butikker = h.get("b").split(",").filter(Boolean);
+    state.tilbud = h.get("t") === "1";
+    state.forarb = h.get("f") === "1";
+    state.lavere = h.get("l") === "1";
+    if (h.get("s")) state.sort = h.get("s");
+  }
+  function skrivHash() {
+    var h = new URLSearchParams();
+    if (state.kat !== "alle") h.set("k", state.kat);
+    if (state.q) h.set("q", state.q);
+    if (state.butikker.length) h.set("b", state.butikker.join(","));
+    if (state.tilbud) h.set("t", "1");
+    if (state.forarb) h.set("f", "1");
+    if (state.lavere) h.set("l", "1");
+    if (state.sort !== "eff") h.set("s", state.sort);
+    var s = h.toString();
+    history.replaceState(null, "", s ? "#" + s : location.pathname + location.search);
+  }
+
+  function matcher(p, medKat, medLavere) {
+    if (!aktiv(p)) return false;
+    if (medLavere && !state.lavere && !p.hoj) return false;
+    if (medKat && state.kat !== "alle" && p.kat !== state.kat) return false;
+    if (state.butikker.length && state.butikker.indexOf(p.butik) < 0) return false;
+    if (state.tilbud && !p.slut) return false;
+    if (state.forarb && p.forarb) return false;
+    if (state.q) {
+      var ord = norm(state.q).split(/\s+/);
+      for (var i = 0; i < ord.length; i++) if (ord[i] && p._s.indexOf(ord[i]) < 0) return false;
+    }
+    return true;
+  }
+  var SORT = {
+    eff: function (a, b) { return a.eff - b.eff; },
+    raa: function (a, b) { return a.raa - b.raa; },
+    prot: function (a, b) { return b.prot - a.prot || a.eff - b.eff; },
+    andel: function (a, b) { return (b.andel || 0) - (a.andel || 0) || a.eff - b.eff; },
+    pris: function (a, b) { return a.pris - b.pris; }
+  };
+
+  // ── Rendering ─────────────────────────────────────────────────────────────────
+  var $ = function (id) { return document.getElementById(id); };
+
+  function renderKats(base) {
+    var stats = {};
+    base.forEach(function (p) {
+      var s = stats[p.kat] || (stats[p.kat] = { n: 0, min: Infinity });
+      s.n++; if (p.eff < s.min) s.min = p.eff;
+    });
+    var alleMin = base.reduce(function (m, p) { return Math.min(m, p.eff); }, Infinity);
+    var html = katKnap("alle", "🛒", "Alle varer", base.length, alleMin);
+    KATS.forEach(function (k) {
+      var s = stats[k.key];
+      if (!s && k.key === "andet") return;
+      html += katKnap(k.key, k.ikon, k.navn, s ? s.n : 0, s ? s.min : null);
+    });
+    $("cats").innerHTML = html;
+  }
+  function katKnap(key, ik, navn, n, min) {
+    var on = state.kat === key;
+    return '<button class="cat" data-kat="' + key + '" aria-pressed="' + on + '"' + (n || on ? "" : " disabled") + ">" +
+      '<span class="ik" aria-hidden="true">' + ik + '</span><span class="nv">' + esc(navn) + "</span>" +
+      '<span class="sm">' + (min != null && isFinite(min) ? "fra <b>" + kr(min) + "</b> · " : "") + n + (n === 1 ? " vare" : " varer") + "</span></button>";
+  }
+
+  function rowHtml(p, i) {
+    var best = i === 0 && state.sort === "eff" ? '<span class="tag best">Billigst</span>' : "";
+    var thumb = p.img
+      ? '<div class="thumb" data-emo="' + ikon(p) + '"><img src="' + esc(p.img) + '" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.parentNode.classList.add(\'noimg\');this.remove()"></div>'
+      : '<div class="thumb noimg" data-emo="' + ikon(p) + '"></div>';
+    return '<article class="row" tabindex="0" data-id="' + esc(p.id) + '">' +
+      '<div class="rank">' + (i + 1) + "</div>" + thumb +
+      '<div class="main"><div class="navn">' + esc(p.navn) + "</div>" +
+        '<div class="meta">' + butikTag(p.butik) + "<span>" + vaegtTxt(p) + "</span>" + tilbudTag(p) + best + "</div>" +
+        '<div class="sub"><span>' + krFast(p.pris) + "</span><span>" + (p.est ? "~" : "") + tal(p.prot, 1) + " g protein/100 g</span>" + dots(p.pdcaas) + "</div>" +
+      "</div>" +
+      '<div class="cell">' + krFast(p.pris) + "</div>" +
+      '<div class="cell"' + (p.est ? ' title="Estimeret ud fra varetypen"' : "") + ">" + (p.est ? "~" : "") + tal(p.prot, 1) + " g<small> /100 g</small></div>" +
+      '<div class="cell">' + dots(p.pdcaas) + "</div>" +
+      '<div class="vaerdi"><strong>' + kr(state.sort === "raa" ? p.raa : p.eff) + "</strong><small>pr. 100 g protein</small></div>" +
+      "</article>";
+  }
+
+  var sidsteListe = [];
+  function render() {
+    var base = ALLE.filter(function (p) { return matcher(p, false, true); });
+    renderKats(base);
+    var liste = base.filter(function (p) { return state.kat === "alle" || p.kat === state.kat; }).sort(SORT[state.sort] || SORT.eff);
+    sidsteListe = liste;
+
+    var head = '<div class="head" aria-hidden="true"><span>#</span><span></span><span>Vare</span><span class="r">Pris</span><span class="r">Protein</span><span class="r">Kvalitet</span><span class="r">' +
+      (state.sort === "raa" ? "Kr pr. 100 g protein" : "Kr pr. 100 g protein*") + "</span></div>";
+    if (!liste.length) {
+      $("liste").innerHTML = '<div class="tom"><p>Ingen varer matcher dine filtre.</p><button class="btn" id="nulstil">Nulstil filtre</button></div>';
+    } else {
+      $("liste").innerHTML = head + liste.slice(0, state.vis).map(rowHtml).join("");
+    }
+    $("vis-flere").hidden = liste.length <= state.vis;
+    $("vis-flere").textContent = "Vis flere (" + (liste.length - state.vis) + " tilbage)";
+
+    var filtre = state.q || state.butikker.length || state.tilbud || state.forarb || state.kat !== "alle";
+    $("info").innerHTML = "<span>" + liste.length + (liste.length === 1 ? " vare" : " varer") +
+      (state.sort === "raa" ? "" : " · *justeret for proteinkvalitet") + "</span>" +
+      (filtre ? '<button class="link" id="nulstil2">Nulstil filtre</button>' : "");
+
+    var lavere = ALLE.filter(function (p) { return !p.hoj && matcher(p, true, false); }).length;
+    $("lavere").innerHTML = state.lavere
+      ? 'Viser også varer hvor 12–20 % af energien er protein. <button class="link" id="lavere-btn">Skjul dem igen</button>'
+      : (lavere ? '<button class="link" id="lavere-btn">Vis også ' + lavere + " varer med lavere proteinandel</button> (fx havregryn og pasta)" : "");
+
+    document.querySelectorAll("[data-filter]").forEach(function (b) { b.setAttribute("aria-pressed", String(!!state[b.dataset.filter])); });
+    $("butik-btn").innerHTML = state.butikker.length
+      ? (state.butikker.length === 1 ? esc(state.butikker[0]) : "Butikker") + ' <span class="cnt">' + state.butikker.length + "</span> ▾"
+      : "Alle butikker ▾";
+    skrivHash();
+  }
+
+  function renderButikPanel() {
+    var antal = {};
+    ALLE.forEach(function (p) { if (aktiv(p) && (state.lavere || p.hoj)) antal[p.butik] = (antal[p.butik] || 0) + 1; });
+    var navne = Object.keys(antal).sort(function (a, b) { return antal[b] - antal[a]; });
+    $("butik-panel").innerHTML = navne.map(function (b) {
+      return '<label><input type="checkbox" value="' + esc(b) + '"' + (state.butikker.indexOf(b) >= 0 ? " checked" : "") + ">" + butikTag(b) + '<span class="n">' + antal[b] + "</span></label>";
+    }).join("") + '<div class="dd-actions"><button class="link" id="butik-ryd">Vis alle</button><button class="link" id="butik-luk">Færdig</button></div>';
+  }
+
+  // ── Detaljepanel ────────────────────────────────────────────────────────────────
+  function aabnVare(id) {
+    var p = ALLE.filter(function (x) { return String(x.id) === String(id); })[0];
+    if (!p) return;
+    var protPakke = p.vaegt * p.prot / 100;
+    var spis = p.spiselig || 1;
+    var efterBen = protPakke * spis;
+    var optag = efterBen * p.pdcaas;
+    var k = kval(p.pdcaas);
+    var maaltid = p.eff * 0.3;
+
+    var trin = '<li><span>Protein i pakken (' + vaegtTxt(p) + " × " + tal(p.prot, 1) + " g/100 g)</span><span>" + tal(protPakke, 0) + " g</span></li>";
+    if (p.spiselig) trin += "<li><span>Minus knogler (ca. " + Math.round((1 - spis) * 100) + " % af vægten)</span><span>" + tal(efterBen, 0) + " g</span></li>";
+    trin += "<li><span>Proteinkvalitet " + tal(p.pdcaas, 2) + " → kroppen kan udnytte</span><span>" + tal(optag, 0) + " g</span></li>";
+    trin += "<li><span>" + krFast(p.pris) + " ÷ " + tal(optag, 0) + " g × 100</span><span>" + krFast(p.eff) + "</span></li>";
+
+    var noter = "";
+    if (p.vaegt_max) noter += '<div class="note var">⚖️ <strong>Variabel pakkevægt.</strong> Tilbuddet gælder ' + vaegtTxt(p) + ". Vi regner med den mindste vægt, så du kan få mere for pengene i praksis.</div>";
+    if (p.ben) noter += '<div class="note ben">🦴 <strong>Indeholder knogler.</strong> Næringsindholdet gælder det spiselige kød, men pakkens vægt inkluderer knogler. Vi regner med, at ca. ' + Math.round(spis * 100) + " % af vægten kan spises.</div>";
+    if (p.forarb) noter += '<div class="note forarb">⚠️ <strong>Forarbejdet vare.</strong> Proteinkvaliteten er nedjusteret, fordi varen typisk indeholder fyld, panering eller bindemidler.' + (p.usikker ? " Kulhydrat og kalorier kan være undervurderet." : "") + "</div>";
+    if (p.est) noter += '<div class="note est">~ <strong>Estimeret næringsindhold.</strong> Tilbudsaviser oplyser ikke næringsindhold, så tallene er gennemsnit for varetypen. Tjek altid emballagen — især for mærkevarer og varianter med smag.' + (p.eller ? "<br>Del af tilbuddet «" + esc(p.eller) + "»." : "") + "</div>";
+
+    var img = p.img
+      ? '<div class="s-img"><img src="' + esc(p.img) + '" alt="" referrerpolicy="no-referrer" onerror="this.parentNode.textContent=\'' + ikon(p) + '\'"></div>'
+      : '<div class="s-img" aria-hidden="true">' + ikon(p) + "</div>";
+    var tilbud = p.slut ? '<div class="meta">' + tilbudTag(p) + (p.start ? "<span>" + dato(p.start) + " – " + dato(p.slut) + "</span>" : "") + "</div>" : "";
+    var andel = p.andel != null ? tal(p.andel, 0) + " %" + (p.andel >= 20 ? '<span class="eu">Højt protein</span>' : "") : "–";
+    var g = function (v) { return v == null ? "–" : (p.est ? "~" : "") + tal(v, 1) + " g"; };
+
+    $("sheet-body").innerHTML = img +
+      '<div class="s-body">' + butikTag(p.butik) +
+      "<h2>" + esc(p.navn) + "</h2>" + tilbud +
+      '<div class="s-pris"><strong>' + krFast(p.pris) + "</strong><span>" + vaegtTxt(p) + " · " + enhedTxt(p) + "</span></div>" +
+      '<div class="result"><div class="big">' + krFast(p.eff) + " <small>pr. 100 g protein</small></div>" +
+        '<ul class="steps">' + trin + "</ul>" +
+        '<div style="margin-top:8px;font-size:13px;color:var(--ink2)">Et måltid med 30 g protein koster ca. <strong>' + krFast(maaltid) + "</strong>.</div></div>" +
+      noter +
+      '<div class="s-sec">Næringsindhold pr. 100 g</div>' +
+      '<div class="grid"><div><div class="l">Protein</div><div class="v" style="color:var(--good)">' + g(p.prot) + "</div></div>" +
+        '<div><div class="l">Energi</div><div class="v">' + (p.kcal ? (p.est ? "~" : "") + tal(p.kcal, 0) + " kcal" : "–") + "</div></div>" +
+        (p.fedt == null && p.kulh == null ? "" :
+          '<div><div class="l">Fedt</div><div class="v">' + g(p.fedt) + "</div></div>" +
+          '<div><div class="l">Kulhydrat</div><div class="v">' + g(p.kulh) + "</div></div>") +
+        '<div class="wide"><div class="l">Andel af energien fra protein</div><div class="v">' + andel + "</div></div></div>" +
+      '<div class="s-sec">Proteinkvalitet</div>' +
+      '<div class="grid"><div><div class="l">Niveau</div><div class="v">' + dots(p.pdcaas) + " " + k.t + "</div></div>" +
+        '<div><div class="l">PDCAAS</div><div class="v">' + tal(p.pdcaas, 2) + "</div></div>" +
+        (p.pdcaas_grundlag ? '<div class="wide"><div class="l">Vurderet ud fra</div><div class="v" style="font-weight:600">' + esc(p.pdcaas_grundlag) + "</div></div>" : "") + "</div>" +
+      '<div class="actions">' +
+        (p.url ? '<a class="primary" href="' + esc(p.url) + '" target="_blank" rel="noopener">Se varen hos ' + esc(p.butik) + " ↗</a>" : "") +
+        '<a href="https://www.google.com/search?q=' + encodeURIComponent(p.butik + " " + p.navn) + '" target="_blank" rel="noopener">Søg efter varen ↗</a>' +
+        '<button class="link" data-modal="metode" style="margin-top:4px">Hvordan regner I?</button>' +
+      "</div></div>";
+    $("sheet").scrollTop = 0;
+    $("sheet").classList.add("open");
+    $("sheet-bg").classList.add("open");
+    $("sheet").querySelector(".x").focus({ preventScroll: true });
+  }
+  function lukVare() { $("sheet").classList.remove("open"); $("sheet-bg").classList.remove("open"); }
+
+  // ── Modaler ─────────────────────────────────────────────────────────────────────
+  function referenceHtml() {
+    var rows = (DATA.reference || []).map(function (gr) {
+      return '<tr class="grp"><td colspan="5">' + esc(gr.gruppe) + "</td></tr>" + gr.rows.map(function (r) {
+        return "<tr><td>" + esc(r.navn) + "</td><td><strong>" + tal(r.prot, 1) + " g</strong></td><td>" + tal(r.fedt, 1) + " g</td><td>" + tal(r.kcal, 0) + "</td><td>" + dots(r.pdcaas) + " " + tal(r.pdcaas, 2) + "</td></tr>";
+      }).join("");
+    }).join("");
+    return "<h2>Næringsreference</h2><p>Typiske værdier pr. 100 g rå vare. Bruges som estimat, når tilbudsaviser ikke oplyser næringsindhold. Proteinkvalitet (PDCAAS) er omtrentlige værdier fra litteraturen.</p>" +
+      '<table class="ref"><thead><tr><th>Vare</th><th>Protein</th><th>Fedt</th><th>Kcal</th><th>Kvalitet</th></tr></thead><tbody>' + rows + "</tbody></table>";
+  }
+  function aabnModal(navn) {
+    var html = navn === "reference" ? referenceHtml() : ($("tpl-" + navn) || {}).innerHTML || "";
+    $("modal-body").innerHTML = html;
+    $("modal").classList.add("open");
+    $("modal-bg").classList.add("open");
+    $("modal").scrollTop = 0;
+  }
+  function lukModal() { $("modal").classList.remove("open"); $("modal-bg").classList.remove("open"); }
+
+  // ── Hændelser ───────────────────────────────────────────────────────────────────
+  function nulstil() { state.kat = "alle"; state.q = ""; state.butikker = []; state.tilbud = false; state.forarb = false; state.vis = 50; $("sog").value = ""; render(); }
+
+  document.addEventListener("click", function (e) {
+    var t = e.target;
+    var kat = t.closest("[data-kat]");
+    if (kat && !kat.disabled) { state.kat = state.kat === kat.dataset.kat && kat.dataset.kat !== "alle" ? "alle" : kat.dataset.kat; state.vis = 50; render(); return; }
+    var f = t.closest("[data-filter]");
+    if (f) { state[f.dataset.filter] = !state[f.dataset.filter]; state.vis = 50; render(); return; }
+    var m = t.closest("[data-modal]");
+    if (m) { aabnModal(m.dataset.modal); return; }
+    if (t.closest("[data-luk]")) { if (t.closest("#modal")) lukModal(); else lukVare(); return; }
+    if (t.id === "sheet-bg") { lukVare(); return; }
+    if (t.id === "modal-bg") { lukModal(); return; }
+    if (t.id === "nulstil" || t.id === "nulstil2") { nulstil(); return; }
+    if (t.id === "lavere-btn") { state.lavere = !state.lavere; render(); return; }
+    if (t.id === "vis-flere") { state.vis += 100; render(); return; }
+    if (t.closest("#butik-btn")) {
+      var dd = $("butik-dd"); var open = !dd.classList.contains("open");
+      if (open) renderButikPanel();
+      dd.classList.toggle("open", open); $("butik-btn").setAttribute("aria-expanded", String(open)); return;
+    }
+    if (t.id === "butik-ryd") { state.butikker = []; renderButikPanel(); render(); return; }
+    if (t.id === "butik-luk") { $("butik-dd").classList.remove("open"); return; }
+    if (!t.closest("#butik-dd")) $("butik-dd").classList.remove("open");
+    var row = t.closest(".row");
+    if (row) aabnVare(row.dataset.id);
+  });
+  $("butik-panel").addEventListener("change", function (e) {
+    var v = e.target.value; var i = state.butikker.indexOf(v);
+    if (e.target.checked && i < 0) state.butikker.push(v);
+    if (!e.target.checked && i >= 0) state.butikker.splice(i, 1);
+    state.vis = 50; render();
+  });
+  var tmr;
+  $("sog").addEventListener("input", function (e) { clearTimeout(tmr); tmr = setTimeout(function () { state.q = e.target.value; state.vis = 50; render(); }, 120); });
+  $("sort").addEventListener("change", function (e) { state.sort = e.target.value; render(); });
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") { lukModal(); lukVare(); $("butik-dd").classList.remove("open"); }
+    if (e.key === "Enter" && e.target.classList && e.target.classList.contains("row")) aabnVare(e.target.dataset.id);
+  });
+
+  // ── Start ───────────────────────────────────────────────────────────────────────
+  (function header() {
+    var meta = DATA.meta || {};
+    var hoj = ALLE.filter(function (p) { return aktiv(p) && p.hoj; });
+    var butikker = {}; hoj.forEach(function (p) { butikker[p.butik] = 1; });
+    $("h-antal").textContent = hoj.length.toLocaleString("da-DK");
+    $("h-butikker").textContent = Object.keys(butikker).length;
+    if (meta.repo) { $("repo-link").href = meta.repo; $("repo-link").hidden = false; }
+    if (meta.genereret) {
+      var g = new Date(meta.genereret), nu = new Date();
+      var dage = Math.round((new Date(lokalDato(nu)) - new Date(lokalDato(g))) / 864e5);
+      var kl = z(g.getHours()) + ":" + z(g.getMinutes());
+      var txt = dage === 0 ? "Opdateret i dag kl. " + kl : dage === 1 ? "Opdateret i går kl. " + kl : "Opdateret for " + dage + " dage siden";
+      $("fresh-txt").innerHTML = txt;
+      if (dage > 2) $("fresh").classList.add("stale");
+    }
+  })();
+  laesHash();
+  $("sog").value = state.q;
+  $("sort").value = state.sort;
+  render();
+})();
+</script>
+</body>
+</html>
