@@ -597,6 +597,14 @@ def parse_eller_tilbud(offer: dict, matched_query: str) -> list[dict]:
     kontekst_prefix = " ".join(prefix_ord[:min(3, max(1, len(prefix_ord)-1))])
     STAMMER = ("kyllinge", "kylling", "kalkun", "svine", "okse", "kalve", "lakse", "fiske", "torske")
 
+    # "Kyllingeover- eller underlår" → "Kyllingeoverlår" + "underlår"
+    SUFFIKSER = ("lår", "filet", "bryst", "kød", "steg", "pølser", "fars", "vinger", "ost")
+    for i in range(len(dele) - 1):
+        if dele[i].endswith("-"):
+            naeste = dele[i + 1].split()[-1].lower()
+            suffiks = next((sf for sf in SUFFIKSER if naeste.endswith(sf)), "")
+            dele[i] = dele[i][:-1] + suffiks
+
     set_navne: set[str] = set()
     for idx, del_navn in enumerate(dele):
         # "-spyd" efter "Kyllingelår" → "Kyllingespyd"
