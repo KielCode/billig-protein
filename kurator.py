@@ -51,6 +51,7 @@ UDELUK_SUBKATEGORIER = {
     "mel, sukker, bagning", "is og dessert", "saft m.v.", "energidrikke",
     "sodavand, vand, smoothies m.v.", "smør & fedtstoffer", "fløde m.v.",
     "marmelade & chokolade pålæg m.v.", "kiks, kager & knækbrød", "dej",
+    "is & dessert", "margarine", "frys-selv-is", "kaffetilbehør",
 }
 UDELUK_NAVNEORD = [
     "gær", "sauce", "sovs", "fond", "bouillon", "kakao", "latte", "espresso",
@@ -62,7 +63,7 @@ UDELUK_NAVNEORD = [
 # ── Kategorier (vises som kort øverst på siden) ──────────────────────────────
 KATEGORIER = [
     {"key": "kylling", "navn": "Kylling & kalkun", "ikon": "🍗"},
-    {"key": "okse",    "navn": "Okse & lam",       "ikon": "🥩"},
+    {"key": "okse",    "navn": "Okse, lam & vildt", "ikon": "🥩"},
     {"key": "svin",    "navn": "Svinekød",         "ikon": "🥓"},
     {"key": "fisk",    "navn": "Fisk & skaldyr",   "ikon": "🐟"},
     {"key": "aeg",     "navn": "Æg",               "ikon": "🥚"},
@@ -74,7 +75,7 @@ KATEGORIER = [
     {"key": "andet",   "navn": "Færdigretter & andet", "ikon": "🍽️"},
 ]
 
-PAALAEG_SUB = {"pålæg", "pålægs salater", "postej/pate", "pølser", "delikatesser"}
+PAALAEG_SUB = {"pålæg", "pålægs salater", "pålægssalater", "postej/pate", "pølser", "delikatesser"}
 AEG_ORD = {"æg", "skrabeæg", "frilandsæg", "buræg", "økoæg", "hønseæg",
            "æggehvide", "æggehvider", "skrabeæggehvide"}
 NAVNEGRUPPER = [  # rækkefølgen betyder noget: første match vinder
@@ -85,7 +86,7 @@ NAVNEGRUPPER = [  # rækkefølgen betyder noget: første match vinder
                  "andelår", "hel and", "underlår", "overlår", "vinger", "drumstick", "wings"]),
     ("okse", ["okse", "beef", "bøf", "entrecote", "entrecôte", "ribeye", "kalv",
               "lam ", "lammek", "lammeb", "tyksteg", "culotte", "flanksteak",
-              "roastbeef", "hakket kød"]),
+              "roastbeef", "hakket kød", "vildt", "hjort", "vildsvin", "dådyr", "rådyr"]),
     ("svin", ["svin", "gris", "flæsk", "nakke", "mørbrad", "kotelet", "skinke",
               "bacon", "spareribs", "spare ribs", "pulled pork", "pork", "medister",
               "ribben", "hamburgerryg", "kamsteg", "prosciutto", "serrano",
@@ -173,6 +174,10 @@ def find_kategori(p: dict) -> str:
     if "ost" in sub or kat == "ost m.v." or any(o.endswith("ost") and o not in IKKE_OST for o in ordliste):
         return "ost"
     # Fald tilbage på butikkens egne kategorier
+    if sub == "and":
+        return "kylling"
+    if sub == "vildt":
+        return "okse"
     for key, ord_ in [("okse", ["oksekød", "lam"]), ("svin", ["gris", "svinekød", "bacon"]),
                       ("fisk", ["fisk", "skaldyr"]), ("kylling", ["kylling", "fjerkræ"]),
                       ("mejeri", ["yoghurt", "skyr", "mælk", "syrnede", "koldskål"]),
