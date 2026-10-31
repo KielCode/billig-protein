@@ -101,28 +101,28 @@ NAVNEGRUPPER = [  # rækkefølgen betyder noget: første match vinder
              "revet ost"]),
 ]
 IKKE_OST = {"frost", "kost", "most", "post", "rost", "host", "toast", "hytteost"}
-BEN_ORD = ["hel kylling", "hele kylling", "kyllingevinger", "kylling vinger",
-           "vinger", "kyllingelår", "underlår", "overlår", "spareribs", "spare ribs",
-           "drumstick", "chicken wing", "chicken thigh", "kyllingeklubbe", "ribben",
-           "hel and", "hele kyllingelår"]
 UDBENET_ORD = ["udben", "filet", "uden ben", "strimler", "inderfilet"]
 
-# Spiselig andel af vægten for varer med knogler (ca.-værdier; første match vinder).
+# Varer med knogler og deres spiselige andel af vægten (ca.-værdier; første match vinder).
 # Næringsdata på varedeklarationer gælder det spiselige kød — men pakkens vægt
 # inkluderer knoglerne, så proteinet i pakken skal nedskrives.
 SPISELIG_ANDEL = [
-    ("vinger", 0.60), ("wings", 0.60), ("spareribs", 0.60), ("spare ribs", 0.60),
-    ("underlår", 0.70), ("drumstick", 0.70), ("kyllingeklubbe", 0.70),
-    ("overlår", 0.78), ("thigh", 0.78), ("kyllingelår", 0.75), ("hele kyllingelår", 0.75),
-    ("hel kylling", 0.70), ("hele kylling", 0.70), ("hel and", 0.65), ("ribben", 0.80),
+    (r"vinger|wings|chicken wing", 0.60),
+    (r"spare ?ribs", 0.60),
+    (r"underlår|drumstick|kyllingeklubbe|chicken drum", 0.70),
+    (r"overlår|chicken thigh", 0.78),
+    (r"kyllingelår|kalkunlår|\blår\b", 0.75),
+    (r"\bhele?\s+(?:[a-zæøå.]+\s+){0,3}kylling|\bkylling,?\s+hel\b", 0.70),
+    (r"\bhele?\s+(?:[a-zæøå.]+\s+){0,2}and\b", 0.65),
+    (r"ribben", 0.80),
 ]
 
 
 def spiselig_andel(navn: str) -> float:
     n = (navn or "").lower()
-    if not er_ben_i(n):
+    if any(o in n for o in UDBENET_ORD):
         return 1.0
-    return next((a for o, a in SPISELIG_ANDEL if o in n), 0.75)
+    return next((a for mønster, a in SPISELIG_ANDEL if re.search(mønster, n)), 1.0)
 
 
 def i_dag() -> date:
@@ -189,8 +189,7 @@ def find_kategori(p: dict) -> str:
 
 
 def er_ben_i(navn: str) -> bool:
-    n = (navn or "").lower()
-    return any(o in n for o in BEN_ORD) and not any(o in n for o in UDBENET_ORD)
+    return spiselig_andel(navn) < 1.0
 
 
 def er_udelukket(p: dict) -> bool:
