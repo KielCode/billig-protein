@@ -1,5 +1,5 @@
 {
-  "tidspunkt": "2026-10-31T13:43:29+00:00",
+  "tidspunkt": "2026-10-31T13:49:27+00:00",
   "kilder": {
     "rema": {
       "ok": true,
@@ -8,18 +8,18 @@
     },
     "etilbudsavis": {
       "ok": true,
-      "antal": 404,
+      "antal": 409,
       "sekunder": 28
     }
   },
   "side": {
-    "ind": 2646,
+    "ind": 2651,
     "udloebet": 0,
     "ikke_butik": 0,
     "udelukket": 1103,
     "lavt_protein": 390,
     "datafejl": 1,
-    "dubletter": 28,
+    "dubletter": 33,
     "ud": 1124,
     "butikker": [
       "ABC Lavpris",
