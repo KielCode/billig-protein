@@ -1,0 +1,12 @@
+# Hemmeligheder — må aldrig committes
+.env
+
+# Genererede filer
+output/
+data/cache/
+web/index.html
+
+# Python
+__pycache__/
+*.py[cod]
+venv/

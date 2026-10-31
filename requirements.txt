@@ -1,0 +1,3 @@
+requests
+python-dotenv
+# anthropic  # kun til claude_analyst.py (lokal ugerapport)
