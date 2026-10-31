@@ -1,27 +1,26 @@
 {
-  "tidspunkt": "2026-10-31T13:28:35+00:00",
+  "tidspunkt": "2026-10-31T13:38:25+00:00",
   "kilder": {
     "rema": {
-      "ok": false,
-      "fejl": "RuntimeError: Kunne ikke finde Remas Algolia-nøgle — sæt REMA_ALGOLIA_KEY som miljøvariabel",
-      "cache_alder_dage": null,
-      "antal": 0
+      "ok": true,
+      "antal": 2501,
+      "sekunder": 28
     },
     "etilbudsavis": {
       "ok": true,
-      "antal": 404,
-      "sekunder": 25
+      "antal": 402,
+      "sekunder": 24
     }
   },
   "side": {
-    "ind": 402,
+    "ind": 2644,
     "udloebet": 0,
     "ikke_butik": 0,
-    "udelukket": 1,
-    "lavt_protein": 0,
+    "udelukket": 1103,
+    "lavt_protein": 390,
     "datafejl": 1,
-    "dubletter": 17,
-    "ud": 383,
+    "dubletter": 26,
+    "ud": 1124,
     "butikker": [
       "ABC Lavpris",
       "Bilka",
