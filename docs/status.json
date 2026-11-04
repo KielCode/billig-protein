@@ -1,33 +1,32 @@
 {
-  "tidspunkt": "2026-11-03T11:55:00+00:00",
+  "tidspunkt": "2026-11-04T12:05:29+00:00",
   "kilder": {
     "rema": {
       "ok": true,
-      "antal": 2527,
-      "sekunder": 30
+      "antal": 2528,
+      "sekunder": 28
     },
     "etilbudsavis": {
       "ok": true,
-      "antal": 379,
-      "sekunder": 29
+      "antal": 504,
+      "sekunder": 68
     }
   },
   "side": {
-    "ind": 2644,
+    "ind": 2769,
     "udloebet": 0,
     "ikke_butik": 0,
-    "udelukket": 1121,
+    "udelukket": 1122,
     "lavt_protein": 395,
     "datafejl": 0,
-    "dubletter": 22,
-    "ud": 1106,
+    "dubletter": 35,
+    "ud": 1217,
     "butikker": [
       "ABC Lavpris",
       "Bilka",
       "Brugsen",
       "Coop 365",
       "Kvickly",
-      "LET-KØB",
       "Lidl",
       "Løvbjerg",
       "MENY",
