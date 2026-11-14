@@ -1,26 +1,26 @@
 {
-  "tidspunkt": "2026-11-13T12:10:29+00:00",
+  "tidspunkt": "2026-11-14T11:26:46+00:00",
   "kilder": {
     "rema": {
       "ok": true,
-      "antal": 2630,
-      "sekunder": 32
+      "antal": 2632,
+      "sekunder": 38
     },
     "etilbudsavis": {
       "ok": true,
-      "antal": 473,
-      "sekunder": 27
+      "antal": 442,
+      "sekunder": 26
     }
   },
   "side": {
-    "ind": 2831,
+    "ind": 2801,
     "udloebet": 0,
     "ikke_butik": 0,
-    "udelukket": 1179,
+    "udelukket": 1180,
     "lavt_protein": 423,
     "datafejl": 0,
-    "dubletter": 24,
-    "ud": 1205,
+    "dubletter": 25,
+    "ud": 1173,
     "butikker": [
       "ABC Lavpris",
       "Bilka",
