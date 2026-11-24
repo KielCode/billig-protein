@@ -1,26 +1,26 @@
 {
-  "tidspunkt": "2026-11-23T14:34:13+00:00",
+  "tidspunkt": "2026-11-24T14:50:42+00:00",
   "kilder": {
     "rema": {
       "ok": true,
-      "antal": 2619,
-      "sekunder": 30
+      "antal": 2612,
+      "sekunder": 33
     },
     "etilbudsavis": {
       "ok": true,
-      "antal": 419,
-      "sekunder": 22
+      "antal": 446,
+      "sekunder": 27
     }
   },
   "side": {
-    "ind": 2770,
+    "ind": 2790,
     "udloebet": 0,
     "ikke_butik": 0,
-    "udelukket": 1171,
-    "lavt_protein": 416,
+    "udelukket": 1172,
+    "lavt_protein": 413,
     "datafejl": 0,
-    "dubletter": 29,
-    "ud": 1154,
+    "dubletter": 32,
+    "ud": 1173,
     "butikker": [
       "Bilka",
       "Brugsen",
